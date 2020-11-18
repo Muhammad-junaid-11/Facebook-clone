@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FaceClone</title>
+
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='bootstrap.min.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+  <!-- nav -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Facelook</a>
+      </div>
+    </div>
+  </nav>
+  <!-- ./nav -->
+
+  <!-- main -->
+  <main class="container">
+  <h1 class="text-center">Welcome to Facelook!<br><small>A simple Facebook clone.</small></h1>
+
+      <div class="container col-md-8">
+        <h4>Make an about section of yours</h4>
+
+        <!-- register form -->
+        <form method="post" action="/about">
+          <div class="form-group">
+            <input class="form-control" type="text" name="name" placeholder="Your name" required>
+          </div>
+<div class="form-group">
+  <p>Your profile picture</p>
+  <input name="ppic" type="file" accept="image">
+</div>
+          <div class="form-group">
+            <input class="form-control" type="text" name="about" placeholder="Something about you">
+          </div>
+
+          <div class="form-group">
+<button type="submit" class="btn btn-primary">Sumbit</button>
+          </div>
+        </form>
+        <!-- ./register form -->
+      </div>
+    </div>
+  </main>
+  <!-- ./main -->
+
+  <!-- footer -->
+  <footer class="container text-center">
+    <ul class="nav nav-pills pull-right">
+      <li>FaceClone - Made by Muhammad junaid</li>
+    </ul>
+  </footer>
+  <!-- ./footer -->
+  <script type="text/javascript" src="{{url_for('static',filename='bootstrap.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static',filename='script.js')}}"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FaceClone</title>
+
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='bootstrap.min.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+  <!-- nav -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">FaceClone</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/">Home</a></li>
+        <li><a href="/profiles">Profiles</a></li>
+        <li><a class="glyphicon-facetime-video" href="/videos">Videos</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- ./nav -->
+<div class="col-md-2"></div>
+        <!-- ./edit profile -->
+      </div>
+      {% for profile in profiles %}
+      <div class="col-md-8">
+        <!-- user profile -->
+        <div class="media">
+          <div class="media-left">
+            {% set fname = 'img/' + profile.ppic %}
+            <img style="width: 100px;height: 120px;" src="{{url_for('static',filename=fname)}}">
+          </div>
+          <div class="media-body">
+            <h2 class="media-heading">{{ profile.name }}</h2>
+            <a href="/profile-delete/{{profile.id}}"><button class="btn btn-danger">Delete</button></a>
+            <p>{{ profile.about}}</p>
+          </div>
+        </div>
+        <br>
+        <hr>
+        <!-- user profile -->
+{% endfor %}
+
+        <!-- timeline -->
+        <div>
+          <!-- post -->
+                 <!-- ./post -->
+        </div>
+        <!-- ./timeline -->
+      </div>
+      <div class="col-md-2">
+        <!-- friends -->
+        
+        <!-- ./friends -->
+      </div>
+    </div>
+  </main>
+  <!-- ./main -->
+
+  <!-- footer -->
+  <footer class="container text-center">
+    <ul class="nav nav-pills pull-right">
+      <li>FaceClone - Made by Muhammad junaid</li>
+    </ul>
+  </footer>
+  <!-- ./footer -->
+  <script type="text/javascript" src="{{url_for('static',filename='bootstrap.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static',filename='script.js')}}"></script>
+</body>
+</html>

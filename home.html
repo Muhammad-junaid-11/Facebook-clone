@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FaceClone</title>
+
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='bootstrap.min.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+  
+</head>
+<body>
+  <!-- nav -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.html">Facelook</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/">Home</a></li>
+        <li><a href="/profiles">Profiles</a></li>
+        <li><a class="glyphicon-facetime-video" href="/videos">Videos</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- ./nav -->
+
+  <!-- main -->
+  <main class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <!-- profile brief -->
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <span style="font-size: 1.3em;margin: 5px;">Daily quote</span>
+            <button class="generate btn btn-success">New</button>
+            <hr>
+            <strong><p class="quote">
+              People Will Realize That Software Is Not A Product. You Use It To Build A Product.</p></strong>
+          
+          "<span class="author">Linus Torvalds</span>"
+          </div>
+        </div>
+        <!-- ./profile brief -->
+
+        <!-- friend requests -->
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h4>Games</h4>
+            <ul>
+              <li>
+                <a href="/Your-personality-according-to-your-name">Your personality according to your name</a>
+              </li>
+              <li>
+<a href="/Your-future-personality-in-present">Your future personality in present</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- ./friend requests -->
+      </div>
+      <div class="col-md-6">
+        <!-- post form -->
+
+          <div class="input-group">
+            <span class="input-group-btn"><a href="/add">
+              <button class="btn btn-primary" type="submit" name="post">Add Post</button>
+</a>            </span>
+          </div><hr>
+        <!-- ./post form -->
+
+        <!-- feed -->
+        <div>
+          <!-- post -->
+          {% for post in posts %}
+          <div class="panel panel-default">
+            <div class="panel-body">
+              {% set fname = 'img/' + post.ppic %}
+              <img style="width: 50px;height: 50px;" src="{{url_for('static',filename=fname)}}">
+              <span style="font-size: 1.6em;">{{ post.name }}</span>
+              <br>
+              
+              <br>
+<a href="/delete/{{post.id}}"><button class="btn btn-danger">Delete Post</button></a>
+              <h4></p>{{ post.title}}</h4>
+            </div>
+            <div class="panel-footer">
+              <p>{{ post.content }}</p>
+              {% set filename = 'img/' + post.pimg %}
+              <img style="width: 100%;height: 400px;margin: auto;" src="{{url_for('static',filename=filename)}}" >
+            </div>
+          </div>
+          <hr>
+          {% endfor %}
+          <!-- ./post -->
+        </div>
+        <!-- ./feed -->
+      </div>
+      <div class="col-md-3">
+      <!-- add friend -->
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <span style="margin: 0 20px;font-size: 1.5em;">Chat</span>
+<a href="/clear"><button class="btn btn-primary">Clear chat</button></a>
+            <ul>
+              {% for msg in msgs%}
+              <span class="bg bg-info">{{ msg.name }}</span><li>
+                {{ msg.msg}} 
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          
+          <div>
+            
+          <form action="/" method="post">
+            <input style="margin-left: 20px" type="text" name="name" id="name" placeholder="Your name" class="input-group">
+            <br>
+            <input style="margin-left: 20px" type="text" name="msg"  id="msg" placeholder="message" class="input-group">
+            <br>
+          <button style="margin-left: 20px" class="btn btn-success" type="submit">Send</button></form>
+  <br>
+          </div>        </div>
+        <!-- ./add friend -->
+
+  </main>
+  <!-- ./main -->
+
+  <!-- footer -->
+  <footer class="container text-center">
+    <ul class="nav nav-pills pull-right">
+      <li>FaceLook - Made by Muhammad junaid</li>
+    </ul>
+  </footer>
+  <!-- ./footer -->
+  <script type="text/javascript" src="{{url_for('static',filename='bootstrap.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static',filename='script.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static',filename='main.js')}}"></script>
+</body>
+</html>

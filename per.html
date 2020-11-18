@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your personality</title>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    .container{
+        width: 100%;
+        height: 100vh;
+    }
+    .box{
+        width: 400px;
+        margin: auto;
+        border: 2px solid black;
+        display: block;
+        justify-content: center;
+        align-items: center;
+    }
+    .img{
+        position: relative;
+        left: 40px;
+    }@media screen and (max-width: 400px) {
+  .box {
+    width: 100%;
+  }
+}
+</style>
+
+<script>
+    var a = prompt('please enter your name');
+</script>
+</head>
+<body>
+    
+    <div class="container">
+        <h1 style="text-align: center;font-size: 30px;">Check out how people think about you with your name</h1>
+        <h3 id="text" style="text-align: center;color: black;"></h3>
+        <div class="box">
+        <img src="https://joeschmoe.io/api/v1/random" class="img" style="width: 300px;margin: auto;">
+           
+    </div>
+    
+</div>
+</body>
+</html>

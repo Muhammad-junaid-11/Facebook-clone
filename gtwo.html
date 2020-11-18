@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let's toss</title>
+<style>
+    .btn{
+margin: auto;
+width:95px ;
+height: auto;
+    }
+    .btn button{
+        width: 90px;height: 25px;background: rgb(4, 4, 20);color: white;border: 2px solid rgb(4, 4, 20);font-weight: bolder;color: salmon;cursor: pointer;
+    }
+    .btn button:hover{
+        background: rgb(8, 8, 90);
+        box-shadow: 0 0 10px lightskyblue;
+    }
+    .img{
+        width: 350px;
+        margin: auto;
+    }
+</style>
+<script>
+    function generate(){
+    let x =  Math.floor((Math.random()*6)+1);
+    console.log(x);
+     document.getElementById('img').innerHTML= `
+        <img src="{{url_for('static',filename='imggame/d${x}.jpg')}}" style="width:300px;height:300px"> 
+     `;
+    }
+</script>
+</head>
+<body style="background: steelblue">
+    <h1 style="text-align: center;font-weight: bolder;font-size: 40px;color: white;">Your future personlity in present is:</h1>
+    <div class="img" id="img"></div>
+<div class="btn"><button onclick="generate()">Check</button></div>
+   
+</body>
+</html>
